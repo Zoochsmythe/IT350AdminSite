@@ -41,8 +41,8 @@
       <ul class="nav navbar-nav navbar-right">
       <li class="nav-item active"><a class="nav-link" href="#">Display Tables</a></li>
       <li><a class="nav-link" href="AddEditPhones.php">Add/Edit Phone</a></li>
-      <li><a class="nav-link" href="#">Add/Edit Customer</a></li>
-      <li><a class="nav-link" href="#">Add/Edit Order</a></li>
+      <li><a class="nav-link" href="addEditCustomer.php">Add/Edit Customer</a></li>
+      <li><a class="nav-link" href="addEditOrder.php">Add/Edit Order</a></li>
       <li><a class="nav-link" href="logout.php">Log Out</a></li>    
       </ul>
       </div>

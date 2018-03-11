@@ -42,8 +42,8 @@
       <ul class="nav navbar-nav navbar-right">
       <li><a class="nav-link" href="displaytables.php">Display Tables</a></li>
       <li><a class="nav-link" href="AddEditPhones.php">Add/Edit Phone</a></li>
-      <li class="nav-item active"><a class="nav-link" href="addEditCustomer.php">Add/Edit Customer</a></li>
-      <li><a class="nav-link" href="addEditOrder.php">Add/Edit Order</a></li>
+      <li><a class="nav-link" href="addEditCustomer.php">Add/Edit Customer</a></li>
+      <li class="nav-item active"><a class="nav-link" href="addEditOrder.php">Add/Edit Order</a></li>
       <li><a class="nav-link" href="logout.php">Log Out</a></li>    
       </ul>
       </div>
@@ -51,27 +51,23 @@
     <div>
       <div class="container">
         <div class="jumbotron">
-        <h4 class="text-center">Add/Update Customers</h4>  
+        <h4 class="text-center">Add/Update Orders</h4>  
         <form action="" method="post">
           <div class="form-group">
-          <label for="customerID">Customer ID:</label>
-          <input type="text" placeholder="Must be existing customer ID if updating..." class="form-control" name="customerID">
+          <label for="orderNumb">Order Number:</label>
+          <input type="number" placeholder="Must be existing order number if updating..." class="form-control" name="orderNumb">
           </div>
           <div class="form-group">
-          <label for="cName">Name:</label>
-          <input type="text" class="form-control" name="cName">
+          <label for="orderDate">Order Date:</label>
+          <input type="date" class="form-control" name="orderDate">
           </div>
           <div class="form-group">
-          <label for="phoneNumb">Phone Number:</label>
-          <input type="number" class="form-control" name="phoneNumb">
+          <label for="expectedDel">Expected Delivery:</label>
+          <input type="date" class="form-control" name="expectedDel">
           </div>
           <div class="form-group">
-          <label for="shippingAdd">Shipping Address:</label>
-          <input type="text" class="form-control" name="shippingAdd">
-          </div>
-          <div class="form-group">
-          <label for="emailAdd">Email Address:</label>
-          <input type="Email" class="form-control" name="emailAdd">
+          <label for="orderType">Order Type:</label>
+          <input type="text" class="form-control" name="orderType">
           </div>
           <div class="text-center">
           <input type="submit" value="Update" name="update">
@@ -88,14 +84,13 @@
       {
         var_dump($_POST);
 
-        $customerID = test_input($_POST['customerID']);
-        $cName = test_input($_POST['cName']);
-        $phoneNumb = test_input($_POST['phoneNumb']);
-        $shippingAdd = test_input($_POST['shippingAdd']);
-        $emailAdd = test_input($_POST['emailAdd']);
+        $orderNumb = test_input($_POST['orderNumb']);
+        $orderDate = test_input($_POST['orderDate']);
+        $expectedDel = test_input($_POST['expectedDel']);
+        $orderType = test_input($_POST['orderType']);
 
 
-        $sql = "UPDATE Customer SET customerID='$customerID', name='$cName', phone_number='$phoneNumb', shipping_address='$shippingAdd', email_address='$emailAdd' WHERE customerID='$customerID'";
+        $sql = "UPDATE Orders SET order_numb='$orderNumb', order_date='$orderDate', exp_delivery='$expectedDel', order_type='$orderType' WHERE order_numb='$orderNumb'";
 
         if ($link->query($sql) === TRUE) {
             echo "Record updated successfully";
@@ -105,13 +100,12 @@
       }
       elseif(isset($_POST['add']))
       {
-        $customerID = test_input($_POST['customerID']);
-        $cName = test_input($_POST['cName']);
-        $phoneNumb = test_input($_POST['phoneNumb']);
-        $shippingAdd = test_input($_POST['shippingAdd']);
-        $emailAdd = test_input($_POST['emailAdd']);
+        $orderNumb = test_input($_POST['orderNumb']);
+        $orderDate = test_input($_POST['orderDate']);
+        $expectedDel = test_input($_POST['expectedDel']);
+        $orderType = test_input($_POST['orderType']);
 
-        $sql = "INSERT INTO Customer VALUES ('$customerID', '$cName', '$phoneNumb', '$shippingAdd', '$emailAdd')";
+        $sql = "INSERT INTO Orders VALUES ('$orderNumb', '$orderDate', '$expectedDel', '$orderType')";
 
         if ($link->query($sql) === TRUE) {
             echo "Record updated successfully";

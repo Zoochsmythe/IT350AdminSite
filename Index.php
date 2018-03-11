@@ -40,7 +40,7 @@
       </ul>
       </div>
     </nav>
-    <h1>Hello, world!</h1>
+    <div class="jumbotron"><h4 class="text-center">Welcome to Hi-Tech Communications!</h4></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
